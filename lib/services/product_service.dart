@@ -5,13 +5,13 @@ class ProductService {
   // Trỏ đến collection "sanpham" trong Firestore
   final _col = FirebaseFirestore.instance.collection('sanpham');
 
-  // Lấy danh sách realtime (tự cập nhật khi có thay đổi)
+  // Lấy danh sách realtime
   Stream<List<Product>> getProducts() {
     return _col.snapshots().map((snap) =>
         snap.docs.map((doc) => Product.fromFirestore(doc)).toList());
   }
 
-  // Thêm sản phẩm mới (Firestore tự tạo ID)
+  // Thêm sản phẩm mới
   Future<void> addProduct(Product p) => _col.add(p.toMap());
 
   // Sửa sản phẩm (dùng merge:true để chỉ cập nhật các trường thay đổi)

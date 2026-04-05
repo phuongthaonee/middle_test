@@ -11,7 +11,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _emailCtrl = TextEditingController();
   final _passCtrl = TextEditingController();
   bool _loading = false;
-  bool _isRegister = false; // Toggle giữa đăng nhập và đăng ký
+  bool _isRegister = false;
 
   Future<void> _submit() async {
     setState(() => _loading = true);
@@ -29,7 +29,6 @@ class _LoginScreenState extends State<LoginScreen> {
           password: _passCtrl.text.trim(),
         );
       }
-      // Không cần navigate thủ công — StreamBuilder trong main.dart tự chuyển màn hình
     } on FirebaseAuthException catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(
@@ -49,10 +48,8 @@ class _LoginScreenState extends State<LoginScreen> {
         padding: const EdgeInsets.all(24),
         child: ConstrainedBox(
           constraints: BoxConstraints(
-            // Trừ 48 để tránh bị che bởi AppBar
             minHeight: MediaQuery.of(context).size.height - 48,
           ),
-          // ConstrainedBox chỉ nhận 1 child — đó là Column
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

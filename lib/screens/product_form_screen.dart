@@ -6,7 +6,7 @@ import '../services/product_service.dart';
 import '../services/storage_service.dart';
 
 class ProductFormScreen extends StatefulWidget {
-  final Product? product; // null = thêm mới, có giá trị = sửa
+  final Product? product; 
   const ProductFormScreen({super.key, this.product});
   @override
   State<ProductFormScreen> createState() => _ProductFormScreenState();
@@ -17,9 +17,9 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
   late final _tenCtrl = TextEditingController(text: widget.product?.tensp);
   late final _loaiCtrl = TextEditingController(text: widget.product?.loaisp);
   late final _giaCtrl = TextEditingController(text: widget.product?.gia.toString());
-  File? _imageFile;    // File ảnh mới chọn từ máy
+  File? _imageFile;
   bool _loading = false;
-  String? _existingImageUrl; // URL ảnh cũ (khi sửa)
+  String? _existingImageUrl;
 
   @override
   void initState() {

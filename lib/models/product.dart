@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Product {
-  String? idsanpham;  // ID tự động từ Firestore
+  String? idsanpham;
   String tensp;
   String loaisp;
   double gia;
-  String? hinhanh;    // URL ảnh trên Firebase Storage
+  String? hinhanh;
 
   Product({
     this.idsanpham,
