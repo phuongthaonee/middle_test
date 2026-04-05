@@ -179,7 +179,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
                                         );
                                         if (ok == true) {
                                           ProductService().deleteProduct(
-                                            p.idsanpham!,
+                                            p.docId!,
                                           );
                                         }
                                       },

@@ -16,8 +16,8 @@ class ProductService {
 
   // Sửa sản phẩm (dùng merge:true để chỉ cập nhật các trường thay đổi)
   Future<void> updateProduct(Product p) =>
-      _col.doc(p.idsanpham).set(p.toMap(), SetOptions(merge: true));
+      _col.doc(p.docId).set(p.toMap(), SetOptions(merge: true));
 
   // Xóa sản phẩm theo ID
-  Future<void> deleteProduct(String id) => _col.doc(id).delete();
+  Future<void> deleteProduct(String docId) => _col.doc(docId).delete();
 }
